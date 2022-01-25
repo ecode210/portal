@@ -5,7 +5,7 @@ import 'package:portal/view/hostel_widgets/hostel_slot.dart';
 class Hostels extends StatelessWidget {
   final String title;
 
-  Hostels(this.title);
+  const Hostels(this.title, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class Hostels extends StatelessWidget {
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              Container(
+              SizedBox(
                 height: size.height,
                 width: size.width,
                 child: ClipRRect(
@@ -58,11 +58,11 @@ class Hostels extends StatelessWidget {
                     ),
                   ),
                   alignment: Alignment.bottomLeft,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Text(
                     title,
                     style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                       color: Colors.white,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,

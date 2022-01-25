@@ -28,7 +28,7 @@ class Profile extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             width: size.width,
             child: Row(
@@ -60,118 +60,112 @@ class Profile extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      child: RichText(
-                        text: TextSpan(
+                    child: RichText(
+                      text: TextSpan(
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              color: Colors.grey.shade900,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w600,
-                              height: 1
-                            ),
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                height: 1),
                           ),
-                          children: [
-                            const TextSpan(
+                          children: const [
+                            TextSpan(
                               text: "Matriculation No.\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Full Name\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Faculty\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Department\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Programme\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "\n",
                             ),
-                            const TextSpan(
+                            TextSpan(
                               text: "Current Level",
                             ),
-                          ]
-                        ),
-                      ),
+                          ]),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: RichText(
-                        text: TextSpan(
+                    child: RichText(
+                      text: TextSpan(
                           style: GoogleFonts.poppins(
                             textStyle: TextStyle(
-                              color: Colors.grey.shade900,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              height: 1
-                            ),
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                height: 1),
                           ),
                           children: [
                             TextSpan(
                               text: "${userInfo.user["matric"]}\n",
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: "\n",
                             ),
                             TextSpan(
                               text: "${userInfo.user["fullname"]}\n",
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: "\n",
                             ),
                             TextSpan(
                               text: "${userInfo.user["faculty"]}\n",
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: "\n",
                             ),
                             TextSpan(
                               text: "${userInfo.user["dept"]}\n",
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: "\n",
                             ),
                             TextSpan(
                               text: "${userInfo.user["programme"]}\n",
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: "\n",
                             ),
                             TextSpan(
                               text: "${userInfo.user["level"]}",
                             ),
-                          ]
-                        ),
-                      ),
+                          ]),
                     ),
                   ),
                 ],

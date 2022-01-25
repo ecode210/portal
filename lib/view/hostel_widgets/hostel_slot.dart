@@ -7,7 +7,7 @@ import 'package:rounded_loading_button/rounded_loading_button.dart';
 class HostelSlot extends StatefulWidget {
   final String title;
 
-  HostelSlot(this.title);
+  const HostelSlot(this.title, {Key? key}) : super(key: key);
 
   @override
   _HostelSlotState createState() => _HostelSlotState();
@@ -17,7 +17,7 @@ class _HostelSlotState extends State<HostelSlot> {
   int room = 0;
   String block = "A";
   String price = "N25,000";
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   late final RoundedLoadingButtonController _loginController;
 
   @override
@@ -36,16 +36,16 @@ class _HostelSlotState extends State<HostelSlot> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xFFf5fff8),
+      backgroundColor: const Color(0xFFf5fff8),
       appBar: PreferredSize(
         preferredSize: Size(size.width, 300),
-        child: Container(
+        child: SizedBox(
           width: size.width,
           height: 300,
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              Container(
+              SizedBox(
                 height: 300,
                 width: size.width,
                 child: Hero(
@@ -67,7 +67,7 @@ class _HostelSlotState extends State<HostelSlot> {
               Positioned(
                 top: 30,
                 right: -10,
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: size.width,
                   child: Row(
@@ -90,13 +90,13 @@ class _HostelSlotState extends State<HostelSlot> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Text(
                         widget.title,
                         style: GoogleFonts.poppins(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.w600,
@@ -117,7 +117,7 @@ class _HostelSlotState extends State<HostelSlot> {
                 child: Container(
                   width: size.width,
                   height: 15,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xFFf5fff8),
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(50),
@@ -133,16 +133,16 @@ class _HostelSlotState extends State<HostelSlot> {
       body: Container(
         width: size.width,
         height: size.height,
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Scrollbar(
           controller: _scrollController,
           thickness: 5,
           interactive: true,
-          radius: Radius.circular(10),
+          radius: const Radius.circular(10),
           child: ListView.builder(
             itemCount: 40,
             controller: _scrollController,
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
               room++;
               if (index == 20) {

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -54,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
       rtlOpening: false,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: WillPopScope(
         onWillPop: () async {
@@ -62,7 +61,7 @@ class _DashboardState extends State<Dashboard> {
           return Future.value(false);
         },
         child: Scaffold(
-          backgroundColor: Color(0xFFf5fff8),
+          backgroundColor: const Color(0xFFf5fff8),
           appBar: PreferredSize(
             preferredSize: Size(size.width, 70),
             child: Stack(
@@ -91,11 +90,11 @@ class _DashboardState extends State<Dashboard> {
                   child: Container(
                     width: size.width,
                     height: 150,
-                    padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 50,
                           width: 50,
                           child: WebsafeSvg.asset(
@@ -103,13 +102,13 @@ class _DashboardState extends State<Dashboard> {
                             fit: BoxFit.fitHeight,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
                           "UNDERGRADUATE",
                           style: GoogleFonts.benchNine(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.w900,
@@ -123,7 +122,7 @@ class _DashboardState extends State<Dashboard> {
                 Positioned(
                   left: 0,
                   child: SafeArea(
-                    child: Container(
+                    child: SizedBox(
                       width: size.width,
                       height: 70,
                       child: Align(
@@ -131,7 +130,7 @@ class _DashboardState extends State<Dashboard> {
                         child: Container(
                           height: 50,
                           width: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 5),
+                          margin: const EdgeInsets.symmetric(horizontal: 5),
                           child: IconButton(
                             onPressed: () {
                               _advancedDrawerController.showDrawer();
@@ -140,7 +139,7 @@ class _DashboardState extends State<Dashboard> {
                               valueListenable: _advancedDrawerController,
                               builder: (_, value, __) {
                                 return AnimatedSwitcher(
-                                  duration: Duration(milliseconds: 250),
+                                  duration: const Duration(milliseconds: 250),
                                   child: Icon(
                                     value.visible ? Icons.clear : Iconsax.menu5,
                                     key: ValueKey<bool>(value.visible),
@@ -158,7 +157,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
                 Positioned(
                   bottom: -200,
-                  child: Container(
+                  child: SizedBox(
                     width: size.width,
                     child: Center(
                       child: Container(
@@ -169,7 +168,7 @@ class _DashboardState extends State<Dashboard> {
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: Center(
-                          child: Container(
+                          child: SizedBox(
                             width: 110,
                             height: 110,
                             child: ClipRRect(
@@ -191,17 +190,17 @@ class _DashboardState extends State<Dashboard> {
           body: Container(
             height: size.height,
             width: size.width,
-            padding: EdgeInsets.only(top: 70),
+            padding: const EdgeInsets.only(top: 70),
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemCount: 6,
               itemBuilder: (context, index) {
                 if (index == 0) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(seconds: 3),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(seconds: 3),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: Profile(),
                       ),
@@ -210,9 +209,9 @@ class _DashboardState extends State<Dashboard> {
                 } else if (index == 1) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(milliseconds: 500),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(milliseconds: 500),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: SchoolCharges(),
                       ),
@@ -221,9 +220,9 @@ class _DashboardState extends State<Dashboard> {
                 } else if (index == 2) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(milliseconds: 350),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(milliseconds: 350),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: DetailsUpdate(),
                       ),
@@ -232,9 +231,9 @@ class _DashboardState extends State<Dashboard> {
                 } else if (index == 3) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(milliseconds: 350),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(milliseconds: 350),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: CourseRegistration(),
                       ),
@@ -243,9 +242,9 @@ class _DashboardState extends State<Dashboard> {
                 } else if (index == 4) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(milliseconds: 350),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(milliseconds: 350),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: Results(),
                       ),
@@ -254,9 +253,9 @@ class _DashboardState extends State<Dashboard> {
                 } else if (index == 5) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
-                    duration: Duration(seconds: 1),
-                    delay: Duration(milliseconds: 350),
-                    child: SlideAnimation(
+                    duration: const Duration(seconds: 1),
+                    delay: const Duration(milliseconds: 350),
+                    child: const SlideAnimation(
                       child: FadeInAnimation(
                         child: PaymentReceipt(),
                       ),
@@ -273,199 +272,198 @@ class _DashboardState extends State<Dashboard> {
         ),
       ),
       drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: 120,
-                  height: 120,
-                  margin: const EdgeInsets.only(
-                    top: 35,
-                    bottom: 55,
-                    left: 24,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/jpg/passport.jpg',
+        child: ListTileTheme(
+          textColor: Colors.white,
+          iconColor: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 120,
+                height: 120,
+                margin: const EdgeInsets.only(
+                  top: 35,
+                  bottom: 55,
+                  left: 24,
+                ),
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(
+                  color: Colors.black26,
+                  shape: BoxShape.circle,
+                ),
+                child: Image.asset(
+                  'assets/jpg/passport.jpg',
+                ),
+              ),
+              Container(
+                width: size.width * 0.6,
+                height: 50,
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(50),
+                    topRight: Radius.circular(50),
                   ),
                 ),
-                Container(
-                  width: size.width * 0.6,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(50),
-                      topRight: Radius.circular(50),
-                    ),
-                  ),
-                  child: ListTile(
-                    onTap: () {
-                      _advancedDrawerController.hideDrawer();
-                    },
-                    leading: Icon(
-                      Iconsax.profile_2user,
-                      color: Colors.green.shade800,
-                    ),
-                    title: Text(
-                      'Dashboard',
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          color: Colors.green.shade800,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
+                child: ListTile(
                   onTap: () {
                     _advancedDrawerController.hideDrawer();
-                    Navigator.push(
-                      context,
-                      CustomPageRoute(PaymentSection()),
-                    );
                   },
-                  leading: Icon(Iconsax.bill),
+                  leading: Icon(
+                    Iconsax.profile_2user,
+                    color: Colors.green.shade800,
+                  ),
                   title: Text(
-                    'Payment Section',
+                    'Dashboard',
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                        color: Colors.white,
+                        color: Colors.green.shade800,
                         fontSize: 15,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                 ),
-                ListTile(
-                  onTap: () {
-                    _advancedDrawerController.hideDrawer();
-                    Navigator.push(
-                      context,
-                      CustomPageRoute(SiwesApplication()),
-                    );
-                  },
-                  leading: Icon(Iconsax.briefcase),
-                  title: Text(
-                    'SIWES Application',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    _advancedDrawerController.hideDrawer();
-                    Navigator.push(
-                      context,
-                      CustomPageRoute(HostelAllocation()),
-                    );
-                  },
-                  leading: Icon(Iconsax.home),
-                  title: Text(
-                    'Hostel Allocation',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {},
-                  leading: Icon(Iconsax.book),
-                  title: Text(
-                    'Course Registration',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.push(context, CustomPageRoute(Tour()));
-                  },
-                  leading: Icon(Iconsax.map),
-                  title: Text(
-                    'School Tour',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.push(context, CustomPageRoute(Settings()));
-                  },
-                  leading: Icon(Iconsax.setting),
-                  title: Text(
-                    'Settings',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                ListTile(
-                  onTap: () {
-                    Navigator.pushReplacement(context, CustomPageRoute(Home()));
-                  },
-                  leading: Icon(Iconsax.logout),
-                  title: Text(
-                    'Logout',
-                    style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                ),
-                Spacer(),
-                DefaultTextStyle(
+              ),
+              ListTile(
+                onTap: () {
+                  _advancedDrawerController.hideDrawer();
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(const PaymentSection()),
+                  );
+                },
+                leading: const Icon(Iconsax.bill),
+                title: Text(
+                  'Payment Section',
                   style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                       color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 16, left: 60),
-                    child: Text('Terms of Service | Privacy Policy'),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  _advancedDrawerController.hideDrawer();
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(const SiwesApplication()),
+                  );
+                },
+                leading: const Icon(Iconsax.briefcase),
+                title: Text(
+                  'SIWES Application',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              ListTile(
+                onTap: () {
+                  _advancedDrawerController.hideDrawer();
+                  Navigator.push(
+                    context,
+                    CustomPageRoute(const HostelAllocation()),
+                  );
+                },
+                leading: const Icon(Iconsax.home),
+                title: Text(
+                  'Hostel Allocation',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () {},
+                leading: const Icon(Iconsax.book),
+                title: Text(
+                  'Course Registration',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(context, CustomPageRoute(const Tour()));
+                },
+                leading: const Icon(Iconsax.map),
+                title: Text(
+                  'School Tour',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.push(context, CustomPageRoute(const Settings()));
+                },
+                leading: const Icon(Iconsax.setting),
+                title: Text(
+                  'Settings',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              ListTile(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, CustomPageRoute(const Home()));
+                },
+                leading: const Icon(Iconsax.logout),
+                title: Text(
+                  'Logout',
+                  style: GoogleFonts.poppins(
+                    textStyle: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              const Spacer(),
+              DefaultTextStyle(
+                style: GoogleFonts.poppins(
+                  textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                child: Container(
+                  margin: const EdgeInsets.only(bottom: 16, left: 60),
+                  child: const Text('Terms of Service | Privacy Policy'),
+                ),
+              ),
+            ],
           ),
         ),
       ),

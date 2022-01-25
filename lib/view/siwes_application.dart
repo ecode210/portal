@@ -25,7 +25,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
           width: size.width,
           height: 90,
           color: Colors.green.shade700,
-          padding: EdgeInsets.fromLTRB(10, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(10, 20, 20, 0),
           child: Row(
             children: [
               BouncingWidget(
@@ -46,13 +46,13 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
                 "SIWES Application",
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -63,11 +63,11 @@ class _SiwesApplicationState extends State<SiwesApplication> {
           ),
         ),
       ),
-      body: Container(
+      body: SizedBox(
         width: size.width,
         height: size.height,
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               Stack(
@@ -76,8 +76,9 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   Container(
                     width: size.width * 0.9,
                     height: 300,
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                    margin: EdgeInsets.only(top: 80),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 30),
+                    margin: const EdgeInsets.only(top: 80),
                     alignment: Alignment.bottomCenter,
                     decoration: BoxDecoration(
                       color: Colors.green.shade700,
@@ -86,107 +87,103 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                     child: Row(
                       children: [
                         Expanded(
-                          child: Container(
-                            child: RichText(
-                              text: TextSpan(
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        height: 1),
+                          child: RichText(
+                            text: TextSpan(
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      height: 1),
+                                ),
+                                children: const [
+                                  TextSpan(
+                                    text: "Matriculation No.\n",
                                   ),
-                                  children: [
-                                    const TextSpan(
-                                      text: "Matriculation No.\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "Full Name\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "Faculty\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "Department\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "Programme\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "\n",
-                                    ),
-                                    const TextSpan(
-                                      text: "Current Level",
-                                    ),
-                                  ]),
-                            ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "Full Name\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "Faculty\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "Department\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "Programme\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "Current Level",
+                                  ),
+                                ]),
                           ),
                         ),
                         Expanded(
-                          child: Container(
-                            child: RichText(
-                              text: TextSpan(
-                                  style: GoogleFonts.poppins(
-                                    textStyle: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w500,
-                                        height: 1),
+                          child: RichText(
+                            text: TextSpan(
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w500,
+                                      height: 1),
+                                ),
+                                children: [
+                                  TextSpan(
+                                    text: "${user.matricNumber}\n",
                                   ),
-                                  children: [
-                                    TextSpan(
-                                      text: "${user.matricNumber}\n",
-                                    ),
-                                    TextSpan(
-                                      text: "\n",
-                                    ),
-                                    TextSpan(
-                                      text: "${user.fullName}\n",
-                                    ),
-                                    TextSpan(
-                                      text: "\n",
-                                    ),
-                                    TextSpan(
-                                      text: "${user.faculty}\n",
-                                    ),
-                                    TextSpan(
-                                      text: "\n",
-                                    ),
-                                    TextSpan(
-                                      text: "${user.department}\n",
-                                    ),
-                                    TextSpan(
-                                      text: "\n",
-                                    ),
-                                    TextSpan(
-                                      text: "${user.programme}\n",
-                                    ),
-                                    TextSpan(
-                                      text: "\n",
-                                    ),
-                                    TextSpan(
-                                      text: "${user.currentLevel}",
-                                    ),
-                                  ]),
-                            ),
+                                  const TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "${user.fullName}\n",
+                                  ),
+                                  const TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "${user.faculty}\n",
+                                  ),
+                                  const TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "${user.department}\n",
+                                  ),
+                                  const TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "${user.programme}\n",
+                                  ),
+                                  const TextSpan(
+                                    text: "\n",
+                                  ),
+                                  TextSpan(
+                                    text: "${user.currentLevel}",
+                                  ),
+                                ]),
                           ),
                         ),
                       ],
@@ -194,19 +191,19 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   ),
                   Positioned(
                     top: 0,
-                    child: Container(
+                    child: SizedBox(
                       width: size.width * 0.9,
                       child: Center(
                         child: Container(
                           width: 120,
                           height: 120,
-                          margin: EdgeInsets.only(top: 20),
+                          margin: const EdgeInsets.only(top: 20),
                           decoration: BoxDecoration(
                             color: Colors.green.shade700,
                             borderRadius: BorderRadius.circular(25),
                           ),
                           child: Center(
-                            child: Container(
+                            child: SizedBox(
                               width: 110,
                               height: 110,
                               child: ClipRRect(
@@ -224,10 +221,10 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Container(
+              SizedBox(
                 height: 30,
                 width: size.width * 0.9,
                 child: Row(
@@ -239,7 +236,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         "Application",
                         style: GoogleFonts.poppins(
@@ -260,7 +257,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Container(
@@ -269,7 +266,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   borderRadius: BorderRadius.circular(50),
                   color: Colors.green.shade50,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 30),
+                padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
                     focusColor: Colors.green,
@@ -287,10 +284,10 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                     ),
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          color: Colors.grey.shade900,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        )),
+                      color: Colors.grey.shade900,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    )),
                     iconEnabledColor: Colors.green,
                     items: [
                       "2020/2021",
@@ -304,10 +301,10 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                           value,
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                color: Colors.grey.shade900,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              )),
+                            color: Colors.grey.shade900,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          )),
                         ),
                       );
                     }).toList(),
@@ -321,37 +318,42 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Bank Name"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Account Number"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Sort Code"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Phone Number"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Consumer<UserInformation>(
-                builder: (context, userInformation, child){
+                builder: (context, userInformation, child) {
                   return TextButton(
                     onPressed: () {
                       DatePicker.showDatePicker(
                         context,
                         showTitleActions: true,
-                        minTime: DateTime(int.parse(user.currentSession.substring(0, 4)), 1, 1),
-                        maxTime: DateTime(int.parse(user.currentSession.substring(0, 4)) + 1, 12, 31),
+                        minTime: DateTime(
+                            int.parse(user.currentSession.substring(0, 4)),
+                            1,
+                            1),
+                        maxTime: DateTime(
+                            int.parse(user.currentSession.substring(0, 4)) + 1,
+                            12,
+                            31),
                         onConfirm: (date) {
                           userInformation.setAttachmentPeriodFrom(date);
-                          print(userInformation.siwesAttachmentPeriodFrom);
                         },
                         currentTime: DateTime.now(),
                         locale: LocaleType.en,
@@ -364,12 +366,14 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                         borderRadius: BorderRadius.circular(50),
                         color: Colors.green.shade50,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            userInformation.siwesAttachmentPeriodFrom == "" ? "Period of Attachment From" : userInformation.siwesAttachmentPeriodFrom,
+                            userInformation.siwesAttachmentPeriodFrom == ""
+                                ? "Period of Attachment From"
+                                : userInformation.siwesAttachmentPeriodFrom,
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
                                 color: Colors.green,
@@ -378,7 +382,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                               ),
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Iconsax.calendar5,
                             color: Colors.green,
                           )
@@ -388,21 +392,26 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Consumer<UserInformation>(
-                builder: (context, userInformation, child){
+                builder: (context, userInformation, child) {
                   return TextButton(
                     onPressed: () {
                       DatePicker.showDatePicker(
                         context,
                         showTitleActions: true,
-                        minTime: DateTime(int.parse(user.currentSession.substring(0, 4)), 1, 1),
-                        maxTime: DateTime(int.parse(user.currentSession.substring(0, 4)) + 1, 12, 31),
+                        minTime: DateTime(
+                            int.parse(user.currentSession.substring(0, 4)),
+                            1,
+                            1),
+                        maxTime: DateTime(
+                            int.parse(user.currentSession.substring(0, 4)) + 1,
+                            12,
+                            31),
                         onConfirm: (date) {
                           userInformation.setAttachmentPeriodTo(date);
-                          print(userInformation.siwesAttachmentPeriodTo);
                         },
                         currentTime: DateTime.now(),
                         locale: LocaleType.en,
@@ -415,12 +424,14 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                         borderRadius: BorderRadius.circular(50),
                         color: Colors.green.shade50,
                       ),
-                      padding: EdgeInsets.symmetric(horizontal: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            userInformation.siwesAttachmentPeriodTo == "" ? "Period of Attachment To" : userInformation.siwesAttachmentPeriodTo,
+                            userInformation.siwesAttachmentPeriodTo == ""
+                                ? "Period of Attachment To"
+                                : userInformation.siwesAttachmentPeriodTo,
                             style: GoogleFonts.poppins(
                               textStyle: const TextStyle(
                                 color: Colors.green,
@@ -429,7 +440,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                               ),
                             ),
                           ),
-                          Icon(
+                          const Icon(
                             Iconsax.calendar5,
                             color: Colors.green,
                           )
@@ -439,19 +450,19 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   );
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Employer"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               _buildTextField(size, "Employer Address"),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               BouncingWidget(
-                onPressed: (){},
+                onPressed: () {},
                 scaleFactor: 0.3,
                 child: Container(
                   height: 50,
@@ -474,7 +485,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
             ],
@@ -495,7 +506,7 @@ class _SiwesApplicationState extends State<SiwesApplication> {
         keyboardType: TextInputType.text,
         cursorColor: Colors.green,
         cursorWidth: 2,
-        cursorRadius: Radius.circular(10),
+        cursorRadius: const Radius.circular(10),
         decoration: InputDecoration(
           border: InputBorder.none,
           enabledBorder: InputBorder.none,

@@ -14,8 +14,8 @@ class SchoolCharges extends StatelessWidget {
     return Container(
       height: 150,
       width: size.width,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -29,7 +29,7 @@ class SchoolCharges extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             width: size.width,
             child: Row(
@@ -45,7 +45,7 @@ class SchoolCharges extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -61,64 +61,59 @@ class SchoolCharges extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      child: RichText(
-                        text: TextSpan(
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  color: Colors.grey.shade900,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1
-                              ),
+                    child: RichText(
+                      text: TextSpan(
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                height: 1),
+                          ),
+                          children: const [
+                            TextSpan(
+                              text: "Current Session\n",
                             ),
-                            children: [
-                              TextSpan(
-                                text: "Current Session\n",
-                              ),
-                              TextSpan(
-                                text: "\n",
-                              ),
-                              TextSpan(
-                                text: "School Charges\n",
-                              ),
-                            ]
-                        ),
-                      ),
+                            TextSpan(
+                              text: "\n",
+                            ),
+                            TextSpan(
+                              text: "School Charges\n",
+                            ),
+                          ]),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      child: RichText(
-                        text: TextSpan(
-                            style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
-                                  color: Colors.grey.shade900,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w500,
-                                  height: 1
-                              ),
+                    child: RichText(
+                      text: TextSpan(
+                          style: GoogleFonts.poppins(
+                            textStyle: TextStyle(
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w500,
+                                height: 1),
+                          ),
+                          children: [
+                            TextSpan(
+                              text: "${user.currentSession}\n",
                             ),
-                            children: [
-                              TextSpan(
-                                text: "${user.currentSession}\n",
-                              ),
-                              TextSpan(
-                                text: "\n",
-                              ),
-                              TextSpan(
-                                text: "N${NumberFormat.currency(symbol: "").format(user.schoolCharges)}\n",
-                              ),
-                            ]
-                        ),
-                      ),
+                            const TextSpan(
+                              text: "\n",
+                            ),
+                            TextSpan(
+                              text:
+                                  "N${NumberFormat.currency(symbol: "").format(user.schoolCharges)}\n",
+                            ),
+                          ]),
                     ),
                   ),
                 ],

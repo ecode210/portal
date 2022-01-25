@@ -12,7 +12,10 @@ class HostelDetails extends StatefulWidget {
   final String price;
   final RoundedLoadingButtonController loginController;
 
-  HostelDetails(this.title, this.block, this.room, this.price, this.loginController);
+  const HostelDetails(
+      this.title, this.block, this.room, this.price, this.loginController,
+      {Key? key})
+      : super(key: key);
 
   @override
   _HostelDetailsState createState() => _HostelDetailsState();
@@ -20,7 +23,6 @@ class HostelDetails extends StatefulWidget {
 
 class _HostelDetailsState extends State<HostelDetails>
     with SingleTickerProviderStateMixin {
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -37,7 +39,7 @@ class _HostelDetailsState extends State<HostelDetails>
                   elevation: 0,
                   shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white, width: 5),
+                    borderSide: const BorderSide(color: Colors.white, width: 5),
                   ),
                   title: Text(
                     "CONFIRM BOOKING",
@@ -49,7 +51,7 @@ class _HostelDetailsState extends State<HostelDetails>
                       ),
                     ),
                   ),
-                  content: Container(
+                  content: SizedBox(
                     width: size.width,
                     height: 140,
                     child: Column(
@@ -83,11 +85,11 @@ class _HostelDetailsState extends State<HostelDetails>
                           controller: this.widget.loginController,
                           onPressed: () {
                             Timer(
-                              Duration(seconds: 2),
+                              const Duration(seconds: 2),
                               () {
                                 this.widget.loginController.success();
                                 Timer(
-                                  Duration(seconds: 1),
+                                  const Duration(seconds: 1),
                                   () {
                                     Navigator.pop(context);
                                     showGeneralDialog(
@@ -103,7 +105,7 @@ class _HostelDetailsState extends State<HostelDetails>
                                               shape: OutlineInputBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(10),
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                     color: Colors.white,
                                                     width: 5),
                                               ),
@@ -124,7 +126,8 @@ class _HostelDetailsState extends State<HostelDetails>
                                                         style:
                                                             GoogleFonts.poppins(
                                                           textStyle: TextStyle(
-                                                            color: Colors.green.shade800
+                                                            color: Colors
+                                                                .green.shade800
                                                                 .withOpacity(
                                                                     0.2),
                                                             fontSize: 50,
@@ -150,13 +153,13 @@ class _HostelDetailsState extends State<HostelDetails>
                                         );
                                       },
                                       transitionDuration:
-                                          Duration(milliseconds: 200),
+                                          const Duration(milliseconds: 200),
                                       barrierDismissible: true,
                                       barrierLabel: '',
                                       context: context,
                                       pageBuilder:
                                           (context, animation1, animation2) {
-                                        return SizedBox();
+                                        return const SizedBox();
                                       },
                                     );
                                   },
@@ -167,7 +170,7 @@ class _HostelDetailsState extends State<HostelDetails>
                           child: Text(
                             "BOOK",
                             style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
@@ -181,20 +184,20 @@ class _HostelDetailsState extends State<HostelDetails>
               ),
             );
           },
-          transitionDuration: Duration(milliseconds: 200),
+          transitionDuration: const Duration(milliseconds: 200),
           barrierDismissible: true,
           barrierLabel: '',
           context: context,
           pageBuilder: (context, animation1, animation2) {
-            return SizedBox();
+            return const SizedBox();
           },
         );
       },
       child: Container(
         height: 50,
         width: size.width,
-        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: Colors.green.shade50,
           borderRadius: BorderRadius.circular(10),

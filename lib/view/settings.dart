@@ -21,7 +21,7 @@ class _SettingsState extends State<Settings> {
           width: size.width,
           height: 90,
           color: Colors.green.shade700,
-          padding: EdgeInsets.fromLTRB(10, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(10, 20, 20, 0),
           child: Row(
             children: [
               BouncingWidget(
@@ -42,13 +42,13 @@ class _SettingsState extends State<Settings> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
                 "Settings",
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -62,14 +62,14 @@ class _SettingsState extends State<Settings> {
       body: Container(
         height: size.height,
         width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView(
           children: [
-            SettingsList(),
+            const SettingsList(),
             Container(
               width: size.width,
               height: 50,
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.green.shade50,
@@ -77,12 +77,11 @@ class _SettingsState extends State<Settings> {
               child: Text(
                 "NOTE: When Fingerprint Login is enabled, it logins the current profile which it was enabled on.",
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    color: Colors.green.shade800,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w600,
-                  )
-                ),
+                    textStyle: TextStyle(
+                  color: Colors.green.shade800,
+                  fontSize: 10,
+                  fontWeight: FontWeight.w600,
+                )),
               ),
             )
           ],

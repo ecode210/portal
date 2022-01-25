@@ -4,35 +4,39 @@ import 'package:portal/viewmodel/map.dart';
 import 'package:provider/provider.dart';
 
 class LocationDetails extends StatefulWidget {
-  final String location;
+  final String location, image;
   final int index;
 
-  LocationDetails(this.location, this.index);
+  const LocationDetails(this.location, this.index, this.image, {Key? key})
+      : super(key: key);
 
   @override
   _LocationDetailsState createState() => _LocationDetailsState();
 }
 
 class _LocationDetailsState extends State<LocationDetails> {
-
   @override
   Widget build(BuildContext context) {
     var map = Provider.of<SchoolMap>(context);
     return InkWell(
-      onTap: (){
+      onTap: () {
         map.refresh(widget.index);
       },
       child: AspectRatio(
         aspectRatio: 1.0 / 1.1,
         child: AnimatedContainer(
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           height: double.infinity,
-          margin: EdgeInsets.fromLTRB(0, 0, 10, 0),
+          margin: const EdgeInsets.fromLTRB(0, 0, 10, 0),
           decoration: BoxDecoration(
-            color: map.isSelected[widget.index] ? Colors.green.shade700 : Colors.transparent,
+            color: map.isSelected[widget.index]
+                ? Colors.green.shade700
+                : Colors.transparent,
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color: map.isSelected[widget.index] ? Colors.transparent : Colors.grey.shade100,
+              color: map.isSelected[widget.index]
+                  ? Colors.transparent
+                  : Colors.grey.shade100,
               width: 2,
             ),
           ),
@@ -40,15 +44,15 @@ class _LocationDetailsState extends State<LocationDetails> {
             children: [
               Expanded(
                 flex: 3,
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
                     child: Image.asset(
-                      "assets/jpg/slide1.jpg",
+                      widget.image,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -58,16 +62,17 @@ class _LocationDetailsState extends State<LocationDetails> {
                 flex: 2,
                 child: Container(
                   width: double.infinity,
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Text(
                     widget.location,
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
-                          color: map.isSelected[widget.index] ? Colors.white : Colors.grey.shade600,
+                          color: map.isSelected[widget.index]
+                              ? Colors.white
+                              : Colors.grey.shade600,
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          height: 1.2
-                      ),
+                          height: 1.2),
                     ),
                   ),
                 ),

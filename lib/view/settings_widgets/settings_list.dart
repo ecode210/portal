@@ -17,7 +17,7 @@ class _SettingsListState extends State<SettingsList> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
+    return SizedBox(
       width: size.width,
       height: 70,
       child: Row(
@@ -26,7 +26,7 @@ class _SettingsListState extends State<SettingsList> {
             flex: 1,
             child: Container(
               alignment: Alignment.center,
-              child: Icon(
+              child: const Icon(
                 Icons.fingerprint_rounded,
                 color: Colors.green,
                 size: 30,
@@ -37,7 +37,7 @@ class _SettingsListState extends State<SettingsList> {
             flex: 7,
             child: Container(
               alignment: Alignment.centerLeft,
-              padding: EdgeInsets.symmetric(horizontal: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 5),
               child: Text(
                 "Fingerprint Login",
                 style: GoogleFonts.poppins(
@@ -55,13 +55,17 @@ class _SettingsListState extends State<SettingsList> {
             child: Container(
               alignment: Alignment.centerRight,
               child: Consumer<Login>(
-                builder: (context, login, child){
+                builder: (context, login, child) {
                   return CupertinoSwitch(
                     onChanged: (bool newValue) {
                       setState(() {
                         Hive.box("portal").put("biometrics", newValue);
-                        if(newValue){
-                          Hive.box("portal").put("userIndex", Provider.of<UserInformation>(context, listen: false).userIndex);
+                        if (newValue) {
+                          Hive.box("portal").put(
+                              "userIndex",
+                              Provider.of<UserInformation>(context,
+                                      listen: false)
+                                  .userIndex);
                         }
                       });
                     },

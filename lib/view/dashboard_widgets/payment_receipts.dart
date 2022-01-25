@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,8 +10,8 @@ class PaymentReceipt extends StatelessWidget {
     return Container(
       height: 300,
       width: size.width,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -26,7 +25,7 @@ class PaymentReceipt extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             width: size.width,
             child: Row(
@@ -42,7 +41,7 @@ class PaymentReceipt extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -58,13 +57,15 @@ class PaymentReceipt extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 children: [
                   Column(
                     children: [
@@ -76,12 +77,11 @@ class PaymentReceipt extends StatelessWidget {
                             child: Text(
                               "S/N",
                               style: GoogleFonts.poppins(
-                                textStyle: TextStyle(
-                                  color: Colors.grey.shade900,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w600,
-                                )
-                              ),
+                                  textStyle: TextStyle(
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              )),
                             ),
                           ),
                           SizedBox(
@@ -91,11 +91,10 @@ class PaymentReceipt extends StatelessWidget {
                               "Session",
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
-                                    color: Colors.grey.shade900,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  )
-                              ),
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              )),
                             ),
                           ),
                           SizedBox(
@@ -105,11 +104,10 @@ class PaymentReceipt extends StatelessWidget {
                               "Description",
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
-                                    color: Colors.grey.shade900,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  )
-                              ),
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              )),
                             ),
                           ),
                           SizedBox(
@@ -119,21 +117,20 @@ class PaymentReceipt extends StatelessWidget {
                               "Level",
                               style: GoogleFonts.poppins(
                                   textStyle: TextStyle(
-                                    color: Colors.grey.shade900,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  )
-                              ),
+                                color: Colors.grey.shade900,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                              )),
                             ),
                           ),
                         ],
                       ),
-                      Container(
+                      SizedBox(
                         width: 380,
                         height: 170,
                         child: ListView.separated(
                           scrollDirection: Axis.vertical,
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           itemCount: 5,
                           separatorBuilder: (BuildContext context, int index) {
                             return Divider(
@@ -157,8 +154,8 @@ class PaymentReceipt extends StatelessWidget {
     );
   }
 
-  Widget _buildReceipt(int index){
-    return Container(
+  Widget _buildReceipt(int index) {
+    return SizedBox(
       height: 50,
       width: double.infinity,
       child: Row(
@@ -170,11 +167,10 @@ class PaymentReceipt extends StatelessWidget {
               "${index + 1}.",
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  )
-              ),
+                color: Colors.grey.shade900,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              )),
             ),
           ),
           SizedBox(
@@ -183,11 +179,11 @@ class PaymentReceipt extends StatelessWidget {
             child: Text(
               "2020/2021",
               style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  ),
+                textStyle: TextStyle(
+                  color: Colors.grey.shade900,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
@@ -198,11 +194,10 @@ class PaymentReceipt extends StatelessWidget {
               "School Charges",
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  )
-              ),
+                color: Colors.grey.shade900,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              )),
             ),
           ),
           SizedBox(
@@ -212,11 +207,10 @@ class PaymentReceipt extends StatelessWidget {
               "400",
               style: GoogleFonts.poppins(
                   textStyle: TextStyle(
-                    color: Colors.grey.shade900,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                  )
-              ),
+                color: Colors.grey.shade900,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              )),
             ),
           ),
         ],

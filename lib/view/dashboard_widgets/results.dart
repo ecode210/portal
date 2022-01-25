@@ -18,8 +18,8 @@ class _ResultsState extends State<Results> {
     return Container(
       height: 300,
       width: size.width,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -33,7 +33,7 @@ class _ResultsState extends State<Results> {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             width: size.width,
             child: Row(
@@ -49,7 +49,7 @@ class _ResultsState extends State<Results> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -65,11 +65,11 @@ class _ResultsState extends State<Results> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: Column(
                 children: [
@@ -78,10 +78,10 @@ class _ResultsState extends State<Results> {
                     value: _firstValue,
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          color: Colors.grey.shade900,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        )),
+                      color: Colors.grey.shade900,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    )),
                     iconEnabledColor: Colors.green,
                     items: [
                       "2020/2021 || 400 Level",
@@ -95,10 +95,10 @@ class _ResultsState extends State<Results> {
                           value,
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                color: Colors.grey.shade900,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              )),
+                            color: Colors.grey.shade900,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          )),
                         ),
                       );
                     }).toList(),
@@ -110,16 +110,16 @@ class _ResultsState extends State<Results> {
                       });
                     },
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   DropdownButton<String>(
                     focusColor: Colors.green,
                     value: _secondValue,
                     style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          color: Colors.grey.shade900,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        )),
+                      color: Colors.grey.shade900,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    )),
                     iconEnabledColor: Colors.green,
                     items: [
                       "First Semester",
@@ -132,10 +132,10 @@ class _ResultsState extends State<Results> {
                           value,
                           style: GoogleFonts.poppins(
                               textStyle: TextStyle(
-                                color: Colors.grey.shade900,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500,
-                              )),
+                            color: Colors.grey.shade900,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                          )),
                         ),
                       );
                     }).toList(),
@@ -147,9 +147,9 @@ class _ResultsState extends State<Results> {
                       });
                     },
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   BouncingWidget(
-                    duration: Duration(milliseconds: 100),
+                    duration: const Duration(milliseconds: 100),
                     scaleFactor: 0.5,
                     onPressed: () {},
                     child: Container(
@@ -163,12 +163,10 @@ class _ResultsState extends State<Results> {
                         child: Text(
                           "Display Results",
                           style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
-                                  fontWeight: FontWeight.w500
-                              )
-                          ),
+                                  fontWeight: FontWeight.w500)),
                         ),
                       ),
                     ),

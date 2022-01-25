@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_slider/carousel_slider.dart';
@@ -29,7 +28,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   late final RoundedLoadingButtonController _loginController;
-  GlobalKey _sliderKey = GlobalKey();
+  final GlobalKey _sliderKey = GlobalKey();
   final _formKey = GlobalKey<FormState>();
   String username = '';
   String password = '';
@@ -52,7 +51,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.green.shade700,
       ),
       body: SafeArea(
-        child: Container(
+        child: SizedBox(
           height: size.height,
           width: size.width,
           child: Column(
@@ -61,21 +60,22 @@ class _HomeState extends State<Home> {
                 flex: 5,
                 child: Stack(
                   children: [
-                    Container(
+                    SizedBox(
                       width: size.width,
                       height: size.height,
                     ),
                     Positioned(
                       top: 0,
-                      child: Container(
+                      child: SizedBox(
                         width: size.width,
                         height: size.height,
                         child: CarouselSlider.builder(
                           key: _sliderKey,
                           unlimitedMode: true,
                           enableAutoSlider: true,
-                          autoSliderDelay: Duration(seconds: 5),
-                          autoSliderTransitionTime: Duration(milliseconds: 200),
+                          autoSliderDelay: const Duration(seconds: 5),
+                          autoSliderTransitionTime:
+                              const Duration(milliseconds: 200),
                           slideBuilder: (index) {
                             final sliderImage =
                                 Provider.of<Login>(context, listen: false)
@@ -88,13 +88,14 @@ class _HomeState extends State<Home> {
                                   Container(
                                     height: double.infinity,
                                     width: size.width,
-                                    color: Colors.green.shade700.withOpacity(0.5),
+                                    color:
+                                        Colors.green.shade700.withOpacity(0.5),
                                   ),
                                 ],
                               ),
                             );
                           },
-                          slideTransform: DefaultTransform(),
+                          slideTransform: const DefaultTransform(),
                           itemCount: 3,
                         ),
                       ),
@@ -104,7 +105,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         width: size.width,
                         height: 150,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
@@ -115,7 +116,7 @@ class _HomeState extends State<Home> {
                     ),
                     Positioned(
                       bottom: 20,
-                      child: Container(
+                      child: SizedBox(
                         height: 200,
                         width: size.width,
                         child: Column(
@@ -124,12 +125,12 @@ class _HomeState extends State<Home> {
                           children: [
                             AnimationConfiguration.staggeredList(
                               position: 0,
-                              duration: Duration(seconds: 1),
-                              delay: Duration(seconds: 3),
+                              duration: const Duration(seconds: 1),
+                              delay: const Duration(seconds: 3),
                               child: SlideAnimation(
                                 verticalOffset: -50,
                                 child: FadeInAnimation(
-                                  child: Container(
+                                  child: SizedBox(
                                     height: 100,
                                     width: 100,
                                     child: WebsafeSvg.asset(
@@ -140,12 +141,12 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             AnimationConfiguration.staggeredList(
                               position: 1,
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               child: SlideAnimation(
                                 verticalOffset: -50,
                                 child: FadeInAnimation(
@@ -196,7 +197,7 @@ class _HomeState extends State<Home> {
                         children: [
                           AnimationConfiguration.staggeredList(
                             position: 2,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             child: SlideAnimation(
                               verticalOffset: -50,
                               child: FadeInAnimation(
@@ -211,10 +212,11 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                     TextFormField(
-                                      keyboardType: TextInputType.numberWithOptions(),
+                                      keyboardType: const TextInputType
+                                          .numberWithOptions(),
                                       cursorColor: Colors.green.shade700,
                                       cursorWidth: 2,
-                                      cursorRadius: Radius.circular(10),
+                                      cursorRadius: const Radius.circular(10),
                                       decoration: InputDecoration(
                                         border: InputBorder.none,
                                         enabledBorder: InputBorder.none,
@@ -228,7 +230,8 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         contentPadding:
-                                            const EdgeInsets.symmetric(vertical: 15),
+                                            const EdgeInsets.symmetric(
+                                                vertical: 15),
                                         prefixIcon: Icon(
                                           Iconsax.user,
                                           color: Colors.green.shade700,
@@ -252,12 +255,12 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           AnimationConfiguration.staggeredList(
                             position: 3,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             child: SlideAnimation(
                               verticalOffset: -50,
                               child: FadeInAnimation(
@@ -275,7 +278,7 @@ class _HomeState extends State<Home> {
                                       keyboardType: TextInputType.text,
                                       cursorColor: Colors.green.shade700,
                                       cursorWidth: 2,
-                                      cursorRadius: Radius.circular(10),
+                                      cursorRadius: const Radius.circular(10),
                                       obscureText: true,
                                       decoration: InputDecoration(
                                         border: InputBorder.none,
@@ -290,7 +293,8 @@ class _HomeState extends State<Home> {
                                           ),
                                         ),
                                         contentPadding:
-                                            const EdgeInsets.symmetric(vertical: 15),
+                                            const EdgeInsets.symmetric(
+                                                vertical: 15),
                                         prefixIcon: Icon(
                                           Iconsax.key,
                                           color: Colors.green.shade700,
@@ -313,16 +317,16 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           AnimationConfiguration.staggeredList(
                             position: 4,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             child: SlideAnimation(
                               verticalOffset: -50,
                               child: FadeInAnimation(
-                                child: Container(
+                                child: SizedBox(
                                   width: size.width,
                                   height: 20,
                                   child: Text(
@@ -340,7 +344,7 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           StreamBuilder<QuerySnapshot>(
@@ -349,20 +353,19 @@ class _HomeState extends State<Home> {
                                 AsyncSnapshot<QuerySnapshot> snapshot) {
                               return AnimationConfiguration.staggeredList(
                                 position: 5,
-                                duration: Duration(seconds: 1),
+                                duration: const Duration(seconds: 1),
                                 child: SlideAnimation(
                                   verticalOffset: -50,
                                   child: FadeInAnimation(
                                     child: RoundedLoadingButton(
                                       color: Colors.green.shade700,
                                       successColor: Colors.green.shade700,
-                                      resetDuration: Duration(seconds: 4),
+                                      resetDuration: const Duration(seconds: 4),
                                       resetAfterDuration: true,
                                       elevation: 0,
                                       controller: _loginController,
                                       onPressed: () async {
                                         if (validateAndSave()) {
-                                          print('Validated!');
                                           if (snapshot.hasData) {
                                             final data = snapshot.requireData;
                                             bool isSignedIn = false;
@@ -370,31 +373,46 @@ class _HomeState extends State<Home> {
                                                 index < data.size;
                                                 index++) {
                                               if (username ==
-                                                      data.docs[index]["matric"] &&
+                                                      data.docs[index]
+                                                          ["matric"] &&
                                                   password ==
-                                                      data.docs[index]["password"]) {
+                                                      data.docs[index]
+                                                          ["password"]) {
                                                 print("Signed In!");
                                                 isSignedIn = true;
-                                                Provider.of<UserInformation>(context, listen: false).userIndex = index;
-                                                Provider.of<UserInformation>(context, listen: false).user = data.docs[index];
-                                                Hive.box("portal").put("user", data.docs[index]);
+                                                Provider.of<UserInformation>(
+                                                        context,
+                                                        listen: false)
+                                                    .userIndex = index;
+                                                Provider.of<UserInformation>(
+                                                        context,
+                                                        listen: false)
+                                                    .user = data.docs[index];
+                                                Hive.box("portal").put(
+                                                    "user", data.docs[index]);
 
-                                                if(Hive.box("portal").get("biometrics") == null){
-                                                  Hive.box("portal").put("userIndex", index);
-                                                  Hive.box("portal").put("user", data.docs[index]);
+                                                if (Hive.box("portal")
+                                                        .get("biometrics") ==
+                                                    null) {
+                                                  Hive.box("portal")
+                                                      .put("userIndex", index);
+                                                  Hive.box("portal").put(
+                                                      "user", data.docs[index]);
                                                 }
 
                                                 Timer(
-                                                  Duration(seconds: 2),
+                                                  const Duration(seconds: 2),
                                                   () {
                                                     _loginController.success();
                                                     Timer(
-                                                      Duration(seconds: 1),
+                                                      const Duration(
+                                                          seconds: 1),
                                                       () {
-                                                        Navigator.pushReplacement(
+                                                        Navigator
+                                                            .pushReplacement(
                                                           context,
                                                           CustomPageRoute(
-                                                            Dashboard(),
+                                                            const Dashboard(),
                                                           ),
                                                         );
                                                       },
@@ -409,7 +427,8 @@ class _HomeState extends State<Home> {
                                                 toastLength: Toast.LENGTH_LONG,
                                                 gravity: ToastGravity.TOP,
                                                 backgroundColor: Colors.white,
-                                                textColor: Colors.green.shade700,
+                                                textColor:
+                                                    Colors.green.shade700,
                                                 fontSize: 12,
                                               );
                                               _loginController.error();
@@ -417,7 +436,7 @@ class _HomeState extends State<Home> {
                                           } else if (snapshot.hasError) {
                                             print("Sign in error");
                                             Timer(
-                                              Duration(seconds: 2),
+                                              const Duration(seconds: 2),
                                               () {
                                                 _loginController.error();
                                               },
@@ -430,7 +449,7 @@ class _HomeState extends State<Home> {
                                       child: Text(
                                         "Login",
                                         style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                           color: Colors.white,
                                           fontSize: 12,
                                           fontWeight: FontWeight.w500,
@@ -442,16 +461,16 @@ class _HomeState extends State<Home> {
                               );
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           AnimationConfiguration.staggeredList(
                             position: 6,
-                            duration: Duration(seconds: 1),
+                            duration: const Duration(seconds: 1),
                             child: SlideAnimation(
                               verticalOffset: -50,
                               child: FadeInAnimation(
-                                child: Container(
+                                child: SizedBox(
                                   width: size.width,
                                   height: 20,
                                   child: RichText(
@@ -461,7 +480,7 @@ class _HomeState extends State<Home> {
                                         TextSpan(
                                           text: "New Application? ",
                                           style: GoogleFonts.poppins(
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                               color: Colors.grey,
                                               fontSize: 12,
                                               fontWeight: FontWeight.w500,
@@ -475,7 +494,8 @@ class _HomeState extends State<Home> {
                                                 color: Colors.green.shade700,
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w500,
-                                                decoration: TextDecoration.underline,
+                                                decoration:
+                                                    TextDecoration.underline,
                                               ),
                                             ),
                                             recognizer: TapGestureRecognizer()
@@ -492,59 +512,94 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           StreamBuilder<QuerySnapshot>(
                             stream: Provider.of<Login>(context).users,
-                            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
+                            builder: (context,
+                                AsyncSnapshot<QuerySnapshot> snapshot) {
                               return AnimationConfiguration.staggeredList(
                                 position: 7,
-                                duration: Duration(seconds: 1),
+                                duration: const Duration(seconds: 1),
                                 child: SlideAnimation(
                                   verticalOffset: -50,
                                   child: FadeInAnimation(
                                     child: Consumer<Login>(
-                                      builder: (context, login, child){
-
-                                        if(Hive.box("portal").get("biometrics") == null){
-                                          Hive.box("portal").put("biometrics", false);
+                                      builder: (context, login, child) {
+                                        if (Hive.box("portal")
+                                                .get("biometrics") ==
+                                            null) {
+                                          Hive.box("portal")
+                                              .put("biometrics", false);
                                         }
 
-                                        return Container(
-                                          child: IconButton(
-                                            onPressed: Hive.box("portal").get("biometrics") ? () async {
-
-                                              bool isAuthenticated = await login.authenticate();
-                                              if(isAuthenticated && snapshot.hasData){
-                                                print("Fingerprint Authenticated!");
-                                                var data = snapshot.requireData;
-                                                Provider.of<UserInformation>(context, listen: false).userIndex = Hive.box("portal").get("userIndex");
-                                                Provider.of<UserInformation>(context, listen: false).user = data.docs[Hive.box("portal").get("userIndex")];
-                                                Hive.box("portal").put("user", data.docs[Hive.box("portal").get("userIndex")]);
-                                                Navigator.pushReplacement(context, CustomPageRoute(Dashboard()));
-                                              }else{
-                                                print("Fingerprint not Authorized!");
-                                              }
-                                            } : () {
-                                              Fluttertoast.showToast(
-                                                msg: "Fingerprint not Enabled!",
-                                                toastLength: Toast.LENGTH_LONG,
-                                                gravity: ToastGravity.TOP,
-                                                backgroundColor: Colors.white,
-                                                textColor: Colors.green.shade700,
-                                                fontSize: 12,
-                                              );
-                                            },
-                                            padding: EdgeInsets.zero,
-                                            icon: Icon(
-                                              Icons.fingerprint_rounded,
-                                              color: login.hasFingerprint && Hive.box("portal").get("biometrics") ? Colors.green.shade700 : Colors.grey,
-                                              size: 50,
-                                            ),
-                                            alignment: Alignment.center,
-                                            splashColor: Colors.green.shade100,
+                                        return IconButton(
+                                          onPressed: Hive.box("portal")
+                                                  .get("biometrics")
+                                              ? () async {
+                                                  bool isAuthenticated =
+                                                      await login
+                                                          .authenticate();
+                                                  if (isAuthenticated &&
+                                                      snapshot.hasData) {
+                                                    print(
+                                                        "Fingerprint Authenticated!");
+                                                    var data =
+                                                        snapshot.requireData;
+                                                    Provider.of<UserInformation>(
+                                                                context,
+                                                                listen: false)
+                                                            .userIndex =
+                                                        Hive.box("portal")
+                                                            .get("userIndex");
+                                                    Provider.of<UserInformation>(
+                                                            context,
+                                                            listen: false)
+                                                        .user = data
+                                                            .docs[
+                                                        Hive.box("portal")
+                                                            .get("userIndex")];
+                                                    Hive.box("portal").put(
+                                                        "user",
+                                                        data.docs[Hive.box(
+                                                                "portal")
+                                                            .get("userIndex")]);
+                                                    Navigator.pushReplacement(
+                                                        context,
+                                                        CustomPageRoute(
+                                                            const Dashboard()));
+                                                  } else {
+                                                    print(
+                                                        "Fingerprint not Authorized!");
+                                                  }
+                                                }
+                                              : () {
+                                                  Fluttertoast.showToast(
+                                                    msg:
+                                                        "Fingerprint not Enabled!",
+                                                    toastLength:
+                                                        Toast.LENGTH_LONG,
+                                                    gravity: ToastGravity.TOP,
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    textColor:
+                                                        Colors.green.shade700,
+                                                    fontSize: 12,
+                                                  );
+                                                },
+                                          padding: EdgeInsets.zero,
+                                          icon: Icon(
+                                            Icons.fingerprint_rounded,
+                                            color: login.hasFingerprint &&
+                                                    Hive.box("portal")
+                                                        .get("biometrics")
+                                                ? Colors.green.shade700
+                                                : Colors.grey,
+                                            size: 50,
                                           ),
+                                          alignment: Alignment.center,
+                                          splashColor: Colors.green.shade100,
                                         );
                                       },
                                     ),

@@ -1,5 +1,4 @@
 import 'package:bouncing_widget/bouncing_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -19,8 +18,8 @@ class _CourseRegistrationState extends State<CourseRegistration> {
     return Container(
       height: 220,
       width: size.width,
-      margin: EdgeInsets.fromLTRB(20, 0, 20, 20),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -34,7 +33,7 @@ class _CourseRegistrationState extends State<CourseRegistration> {
       ),
       child: Column(
         children: [
-          Container(
+          SizedBox(
             height: 40,
             width: size.width,
             child: Row(
@@ -50,7 +49,7 @@ class _CourseRegistrationState extends State<CourseRegistration> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
@@ -66,11 +65,11 @@ class _CourseRegistrationState extends State<CourseRegistration> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: Column(
                 children: [
@@ -111,9 +110,9 @@ class _CourseRegistrationState extends State<CourseRegistration> {
                       });
                     },
                   ),
-                  SizedBox(height: 15),
+                  const SizedBox(height: 15),
                   BouncingWidget(
-                    duration: Duration(milliseconds: 100),
+                    duration: const Duration(milliseconds: 100),
                     scaleFactor: 0.5,
                     onPressed: () {},
                     child: Container(
@@ -127,12 +126,10 @@ class _CourseRegistrationState extends State<CourseRegistration> {
                         child: Text(
                           "Submit",
                           style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
-                                  fontWeight: FontWeight.w500
-                              )
-                          ),
+                                  fontWeight: FontWeight.w500)),
                         ),
                       ),
                     ),

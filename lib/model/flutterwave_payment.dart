@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwave/core/flutterwave.dart';
@@ -27,7 +28,7 @@ class FlutterwavePayment {
 
   makePayment() async {
     final Flutterwave flutterwave = Flutterwave.forUIPayment(
-      context: this.context,
+      context: context,
       encryptionKey: "FLWSECK_TEST51277c9d58d2",
       publicKey: "FLWPUBK_TEST-ad2f667124408fe366b7f075d42dc571-X",
       currency: "NGN",
@@ -54,7 +55,7 @@ class FlutterwavePayment {
       if (response == null) {
         print("Transaction failed!");
       } else {
-        if(response.status == "success"){
+        if (response.status == "success") {
           print(response.message);
           print(response.status);
         } else {

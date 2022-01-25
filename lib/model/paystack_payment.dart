@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_paystack/flutter_paystack.dart';
@@ -18,7 +19,8 @@ class PaystackPayment {
   PaystackPlugin paystack = PaystackPlugin();
 
   Future _initializePlugin() async {
-    await paystack.initialize(publicKey: "pk_test_d2fd987d60a06704990f7e3cadbb22b1d50b524a");
+    await paystack.initialize(
+        publicKey: "pk_test_d2fd987d60a06704990f7e3cadbb22b1d50b524a");
   }
 
   String _getReference() {
@@ -36,7 +38,7 @@ class PaystackPayment {
   }
 
   makePayment() async {
-    try{
+    try {
       _initializePlugin().then((_) async {
         Charge charge = Charge()
           ..amount = price * 100
@@ -49,7 +51,7 @@ class PaystackPayment {
           charge: charge,
           method: CheckoutMethod.card,
           fullscreen: false,
-          logo: Container(
+          logo: SizedBox(
             height: 30,
             width: 30,
             child: WebsafeSvg.asset(
@@ -67,7 +69,7 @@ class PaystackPayment {
           print("Transaction failed");
         }
       });
-    }catch(e){
+    } catch (e) {
       print("ERROR THROWN!!!");
     }
   }

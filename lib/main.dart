@@ -16,10 +16,12 @@ Future<void> main() async {
   Directory directory = await getApplicationDocumentsDirectory();
   Hive.init(directory.path);
   await Hive.openBox('portal');
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -34,19 +36,16 @@ class MyApp extends StatelessWidget {
           value: SchoolMap(),
         ),
       ],
-      builder: (context, child){
+      builder: (context, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "Student Portal Mobile Application",
           theme: ThemeData(
-              pageTransitionsTheme: PageTransitionsTheme(
-                  builders: {
-                    TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-                    TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-                  }
-              )
-          ),
-          home: Home(),
+              pageTransitionsTheme: const PageTransitionsTheme(builders: {
+            TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+            TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          })),
+          home: const Home(),
         );
       },
     );

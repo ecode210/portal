@@ -57,6 +57,7 @@ class _PaymentSectionState extends State<PaymentSection> {
           break;
       }
     }
+
     List<Step> _steps = [
       Step(
         isActive: _currentStep >= 0,
@@ -465,13 +466,13 @@ class _PaymentSectionState extends State<PaymentSection> {
               final isLastStep = _currentStep == _steps.length - 1;
 
               if (isLastStep) {
-                if(_paymentToggle[0]){
+                if (_paymentToggle[0]) {
                   PaystackPayment(
                     context: context,
                     price: user.paymentPrice + 150,
                     email: user.email,
                   ).makePayment();
-                } else if(_paymentToggle[1]){
+                } else if (_paymentToggle[1]) {
                   FlutterwavePayment(
                     context: context,
                     price: user.paymentPrice + 150,
@@ -491,12 +492,12 @@ class _PaymentSectionState extends State<PaymentSection> {
                 });
               }
             },
-            controlsBuilder: (context, {onStepContinue, onStepCancel}) {
+            controlsBuilder: (context, controls) {
               return Container(
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: onStepContinue,
+                      onTap: controls.onStepContinue,
                       child: Container(
                         height: 35,
                         width: 100,
@@ -521,7 +522,7 @@ class _PaymentSectionState extends State<PaymentSection> {
                     ),
                     if (_currentStep != 0)
                       GestureDetector(
-                        onTap: onStepCancel,
+                        onTap: controls.onStepCancel,
                         child: Container(
                           height: 35,
                           width: 100,

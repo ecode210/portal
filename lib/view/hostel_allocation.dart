@@ -17,14 +17,14 @@ class _HostelAllocationState extends State<HostelAllocation> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Color(0xFFf5fff8),
+      backgroundColor: const Color(0xFFf5fff8),
       appBar: PreferredSize(
         preferredSize: Size(size.width, 90),
         child: Container(
           width: size.width,
           height: 90,
           color: Colors.green.shade700,
-          padding: EdgeInsets.fromLTRB(10, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(10, 20, 20, 0),
           child: Row(
             children: [
               BouncingWidget(
@@ -45,13 +45,13 @@ class _HostelAllocationState extends State<HostelAllocation> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
                 "Hostel Allocation",
                 style: GoogleFonts.poppins(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                     color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.w600,
@@ -65,13 +65,14 @@ class _HostelAllocationState extends State<HostelAllocation> {
       body: Container(
         height: size.height,
         width: size.width,
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Provider.of<UserInformation>(context, listen: false)
-                    .user["gender"] == "M"
+                    .user["gender"] ==
+                "M"
             ? Column(
                 children: [
                   Hostels("New Boys Hostel"),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Hostels("Old Boys Hostel"),
@@ -80,11 +81,11 @@ class _HostelAllocationState extends State<HostelAllocation> {
             : Column(
                 children: [
                   Hostels("New Girls Hostel"),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Hostels("Old Girls Hostel"),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Hostels("Mid Girls Hostel"),

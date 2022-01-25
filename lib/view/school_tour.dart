@@ -22,12 +22,13 @@ class _TourState extends State<Tour> {
     zoom: 15,
   );
 
-  Future<String> getJsonFile(String path) async{
+  Future<String> getJsonFile(String path) async {
     return await rootBundle.loadString(path);
   }
 
-  void setMapStyle(){
-    getJsonFile("assets/map/light.json").then((mapStyle) => _googleMapController.setMapStyle(mapStyle));
+  void setMapStyle() {
+    getJsonFile("assets/map/light.json")
+        .then((mapStyle) => _googleMapController.setMapStyle(mapStyle));
   }
 
   @override
@@ -133,7 +134,7 @@ class _TourState extends State<Tour> {
                   map.printingPress,
                   map.schoolGate,
                 },
-                onMapCreated: (controller){
+                onMapCreated: (controller) {
                   _googleMapController = controller;
                   map.setGMC(controller);
                   setMapStyle();
@@ -166,7 +167,7 @@ class _TourState extends State<Tour> {
             ),
             Positioned(
               bottom: 0,
-              child: MapBottomSheet(/*_googleMapController*/),
+              child: MapBottomSheet(),
             ),
           ],
         ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
@@ -7,6 +6,8 @@ import 'package:portal/viewmodel/map.dart';
 import 'package:provider/provider.dart';
 
 class MapBottomSheet extends StatefulWidget {
+  const MapBottomSheet({Key? key}) : super(key: key);
+
   @override
   _MapBottomSheetState createState() => _MapBottomSheetState();
 }
@@ -19,8 +20,8 @@ class _MapBottomSheetState extends State<MapBottomSheet> {
     return Container(
       height: size.height * 0.35,
       width: size.width,
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(20),
+      decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
           topRight: Radius.circular(20),
@@ -44,8 +45,8 @@ class _MapBottomSheetState extends State<MapBottomSheet> {
                 keyboardType: TextInputType.text,
                 cursorColor: Colors.green.shade700,
                 cursorWidth: 2,
-                cursorRadius: Radius.circular(10),
-                onChanged: (value){
+                cursorRadius: const Radius.circular(10),
+                onChanged: (value) {
                   map.search(value);
                 },
                 decoration: InputDecoration(
@@ -70,18 +71,19 @@ class _MapBottomSheetState extends State<MapBottomSheet> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Expanded(
-            child: Container(
+            child: SizedBox(
               width: size.width,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemCount: map.locations.length,
                 itemBuilder: (context, index) {
-                      return LocationDetails(map.locations[index], index);
+                  return LocationDetails(
+                      map.locations[index], index, map.locationImages[index]);
                 },
               ),
             ),
